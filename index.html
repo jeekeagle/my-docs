@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="light" data-preset="01mvp">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>实战手册 | MY-DOCS</title>
+  <meta name="description" content="占位符文档站点 — 模仿 01MVP 实战手册布局" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- 顶部公告 -->
+  <div class="announcement" id="announcement">
+    <div class="announcement-inner">
+      <p>
+        <span class="announcement-emoji" aria-hidden="true">🎉</span>
+        <span>MY-DOCS</span>
+        <a href="#pricing" class="announcement-link">早鸟价限时开放中</a>
+        <span>，产品还在打磨中，感谢信任</span>
+      </p>
+      <button class="announcement-close" aria-label="关闭公告" type="button" data-close-announcement>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M18 6 6 18"></path>
+          <path d="m6 6 12 12"></path>
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- 文档布局 -->
+  <div class="layout" data-sidebar-collapsed="false" data-presenter="false" data-zen="false">
+
+    <!-- 顶部 Header -->
+    <header class="header">
+      <div class="header-body">
+        <div class="header-left">
+          <button id="sidebarToggle" class="icon-btn" aria-label="折叠侧边栏" data-sidebar-toggle>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect width="18" height="18" x="3" y="3" rx="2"></rect>
+              <path d="M9 3v18"></path>
+            </svg>
+          </button>
+          <a href="#" class="logo">
+            <span class="logo-light">
+              <svg width="86" height="20" viewBox="0 0 86 20" xmlns="http://www.w3.org/2000/svg" aria-label="MY-DOCS">
+                <text x="0" y="15" font-family="ui-sans-serif, system-ui, sans-serif" font-size="15" font-weight="700" fill="currentColor">MY-DOCS</text>
+              </svg>
+            </span>
+            <span class="logo-dark">
+              <svg width="86" height="20" viewBox="0 0 86 20" xmlns="http://www.w3.org/2000/svg" aria-label="MY-DOCS">
+                <text x="0" y="15" font-family="ui-sans-serif, system-ui, sans-serif" font-size="15" font-weight="700" fill="currentColor">MY-DOCS</text>
+              </svg>
+            </span>
+          </a>
+        </div>
+
+        <button class="search-shortcut" type="button" data-open-search>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="m21 21-4.34-4.34"></path>
+            <circle cx="11" cy="11" r="8"></circle>
+          </svg>
+          <span>Search</span>
+          <span class="kbd-group">
+            <kbd class="kbd">⌘</kbd>
+            <kbd class="kbd">K</kbd>
+          </span>
+        </button>
+
+        <div class="header-right">
+          <div class="header-tools">
+            <button class="tool-btn" type="button" title="Present 模式 (P)" data-toggle-presenter aria-pressed="false">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M15.033 9.44a.647.647 0 0 1 0 1.12l-4.065 2.352a.645.645 0 0 1-.968-.56V7.648a.645.645 0 0 1 .967-.56z"></path>
+                <path d="M12 17v4"></path>
+                <path d="M8 21h8"></path>
+                <rect x="2" y="3" width="20" height="14" rx="2"></rect>
+              </svg>
+              <span>Present</span>
+            </button>
+            <button class="tool-btn" type="button" title="Zen 模式 (Z)" data-toggle-zen aria-pressed="false">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="3"></circle>
+                <path d="M3 7V5a2 2 0 0 1 2-2h2"></path>
+                <path d="M17 3h2a2 2 0 0 1 2 2v2"></path>
+                <path d="M21 17v2a2 2 0 0 1-2 2h-2"></path>
+                <path d="M7 21H5a2 2 0 0 1-2-2v-2"></path>
+              </svg>
+              <span>Zen</span>
+            </button>
+            <button class="tool-btn" type="button" title="切换网站风格" data-open-presets aria-pressed="false">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 22a1 1 0 0 1 0-20 10 9 0 0 1 10 9 5 5 0 0 1-5 5h-2.25a1.75 1.75 0 0 0-1.4 2.8l.3.4a1.75 1.75 0 0 1-1.4 2.8z"></path>
+                <circle cx="13.5" cy="6.5" r=".5" fill="currentColor"></circle>
+                <circle cx="17.5" cy="10.5" r=".5" fill="currentColor"></circle>
+                <circle cx="6.5" cy="12.5" r=".5" fill="currentColor"></circle>
+                <circle cx="8.5" cy="7.5" r=".5" fill="currentColor"></circle>
+              </svg>
+              <span>风格</span>
+              <span class="tool-meta" data-current-preset>01MVP</span>
+            </button>
+          </div>
+
+          <a href="#" class="icon-btn" aria-label="GitHub">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"></path>
+            </svg>
+          </a>
+
+          <button id="themeToggle" class="theme-toggle" aria-label="切换主题">
+            <span class="theme-toggle-inner">
+              <svg class="theme-icon theme-icon-sun" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="4"></circle>
+                <path d="M12 2v2"></path>
+                <path d="M12 20v2"></path>
+                <path d="m4.93 4.93 1.41 1.41"></path>
+                <path d="m17.66 17.66 1.41 1.41"></path>
+                <path d="M2 12h2"></path>
+                <path d="M20 12h2"></path>
+                <path d="m6.34 17.66-1.41 1.41"></path>
+                <path d="m19.07 4.93-1.41 1.41"></path>
+              </svg>
+              <svg class="theme-icon theme-icon-moon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401"></path>
+              </svg>
+            </span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Tab 导航 -->
+      <nav class="header-tabs">
+        <a href="#" class="tab tab-active">实战手册</a>
+        <a href="#" class="tab">案例库</a>
+        <a href="#" class="tab">资源库</a>
+        <a href="#" class="tab">Start</a>
+      </nav>
+    </header>
+
+    <!-- 左侧 Sidebar -->
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-top">
+        <a href="#" class="logo logo-sidebar">
+          <span class="logo-light">
+            <svg width="86" height="20" viewBox="0 0 86 20" xmlns="http://www.w3.org/2000/svg">
+              <text x="0" y="15" font-family="ui-sans-serif, system-ui, sans-serif" font-size="15" font-weight="700" fill="currentColor">MY-DOCS</text>
+            </svg>
+          </span>
+          <span class="logo-dark">
+            <svg width="86" height="20" viewBox="0 0 86 20" xmlns="http://www.w3.org/2000/svg">
+              <text x="0" y="15" font-family="ui-sans-serif, system-ui, sans-serif" font-size="15" font-weight="700" fill="currentColor">MY-DOCS</text>
+            </svg>
+          </span>
+        </a>
+        <button class="icon-btn sidebar-collapse" aria-label="折叠侧边栏" data-sidebar-collapse>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect width="18" height="18" x="3" y="3" rx="2"></rect>
+            <path d="M9 3v18"></path>
+          </svg>
+        </button>
+      </div>
+
+      <button class="sidebar-section-trigger" type="button">
+        <div class="sidebar-section-icon"></div>
+        <div>
+          <p class="sidebar-section-title">实战手册</p>
+          <p class="sidebar-section-subtitle">从想法到上线、收费和运营</p>
+        </div>
+        <svg class="sidebar-section-chev" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="m7 15 5 5 5-5"></path>
+          <path d="m7 9 5-5 5 5"></path>
+        </svg>
+      </button>
+
+      <nav class="sidebar-nav" aria-label="文档导航">
+        <a href="#" class="nav-item nav-item-active">MY-DOCS 实战手册</a>
+        <a href="#" class="nav-item">前言</a>
+        <a href="#" class="nav-item">一切开始于"你"</a>
+
+        <div class="nav-group">
+          <p class="nav-group-label">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"></path>
+              <path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09"></path>
+              <path d="M9 12a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.4 22.4 0 0 1-4 2z"></path>
+              <path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 .05 5 .05"></path>
+            </svg>
+            <span>Step 1：想法与验证</span>
+          </p>
+          <a href="#" class="nav-item">想法与验证</a>
+        </div>
+
+        <div class="nav-group">
+          <p class="nav-group-label">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M9.671 4.136a2.34 2.34 0 0 1 4.659 0 2.34 2.34 0 0 0 3.319 1.915 2.34 2.34 0 0 1 2.33 4.033 2.34 2.34 0 0 0 0 3.831 2.34 2.34 0 0 1-2.33 4.033 2.34 2.34 0 0 0-3.319 1.915 2.34 2.34 0 0 1-4.659 0 2.34 2.34 0 0 0-3.32-1.915 2.34 2.34 0 0 1-2.33-4.033 2.34 2.34 0 0 0 0-3.831A2.34 2.34 0 0 1 6.35 6.051a2.34 2.34 0 0 0 3.319-1.915"></path>
+              <circle cx="12" cy="12" r="3"></circle>
+            </svg>
+            <span>Step 2：开工准备</span>
+          </p>
+          <a href="#" class="nav-item">开工准备</a>
+          <a href="#" class="nav-item nav-item-parent" data-toggle-nav>
+            <span>成本核算</span>
+            <svg class="nav-chev" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="m6 9 6 6 6-6"></path>
+            </svg>
+          </a>
+          <a href="#" class="nav-item nav-item-parent" data-toggle-nav>
+            <span>可选深入</span>
+            <svg class="nav-chev" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="m6 9 6 6 6-6"></path>
+            </svg>
+          </a>
+        </div>
+
+        <div class="nav-group">
+          <p class="nav-group-label">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="m16 18 6-6-6-6"></path>
+              <path d="m8 6-6 6 6 6"></path>
+            </svg>
+            <span>Step 3：构建 MVP</span>
+          </p>
+          <a href="#" class="nav-item">构建 MVP 总览</a>
+          <a href="#" class="nav-item">10 分钟快速构建</a>
+          <a href="#" class="nav-item">MVP 导航</a>
+        </div>
+
+        <div class="nav-group">
+          <p class="nav-group-label">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"></path>
+              <path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09"></path>
+              <path d="M9 12a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.4 22.4 0 0 1-4 2z"></path>
+              <path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 .05 5 .05"></path>
+            </svg>
+            <span>Step 4：上线部署</span>
+          </p>
+          <a href="#" class="nav-item">上线部署总览</a>
+          <a href="#" class="nav-item">上线发布清单</a>
+          <a href="#" class="nav-item">注册个体工商户还是公司</a>
+        </div>
+
+        <div class="nav-group">
+          <p class="nav-group-label">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M5 12h14"></path>
+              <path d="M12 5v14"></path>
+            </svg>
+            <span>Step 5：收费与变现</span>
+          </p>
+          <a href="#" class="nav-item">收费与变现总览</a>
+          <a href="#" class="nav-item">订阅与支付</a>
+        </div>
+
+        <div class="nav-group">
+          <p class="nav-group-label">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+            </svg>
+            <span>Step 6：推广与运营</span>
+          </p>
+          <a href="#" class="nav-item">推广与运营总览</a>
+          <a href="#" class="nav-item">内容运营</a>
+        </div>
+      </nav>
+    </aside>
+
+    <!-- 主内容区 -->
+    <main class="main">
+      <article class="article">
+        <div class="breadcrumb">
+          <a href="#">文档</a>
+          <span class="breadcrumb-sep">/</span>
+          <a href="#">实战手册</a>
+          <span class="breadcrumb-sep">/</span>
+          <span>概览</span>
+        </div>
+
+        <h1>MY-DOCS 实战手册</h1>
+        <p class="article-lead">从认识自己到上线、收费和运营，用 AI 做出一个能验证的小产品。本手册是占位符示例，用于演示文档站点的整体布局与视觉风格。</p>
+
+        <div class="callout callout-info">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"></circle>
+            <path d="M12 16v-4"></path>
+            <path d="M12 8h.01"></path>
+          </svg>
+          <p>这是一段占位符的提示信息，你可以用真实内容替换它。比如："完成本节后，你将掌握从 0 到 1 的核心思路。"</p>
+        </div>
+
+        <h2 id="why">为什么要做这件事</h2>
+        <p>占位符段落。这里通常会写一段简短的引子，告诉读者接下来要解决的问题。文字不要太长，三五行即可，留出呼吸感。</p>
+        <p>可以通过 <a href="#">这个链接</a> 跳到其它章节，或者继续往下阅读。</p>
+
+        <h2 id="what">你会学到什么</h2>
+        <p>下面是占位符列表，模拟手册的目录结构：</p>
+        <ul>
+          <li><strong>Step 1：想法与验证</strong> — 占位符描述，介绍想法的来源与验证方法。</li>
+          <li><strong>Step 2：开工准备</strong> — 占位符描述，介绍环境与工具准备。</li>
+          <li><strong>Step 3：构建 MVP</strong> — 占位符描述，介绍如何用 AI 工具快速搭建原型。</li>
+          <li><strong>Step 4：上线部署</strong> — 占位符描述，介绍从本地到公网的关键步骤。</li>
+          <li><strong>Step 5：收费与变现</strong> — 占位符描述，介绍支付与定价策略。</li>
+          <li><strong>Step 6：推广与运营</strong> — 占位符描述，介绍增长与用户运营。</li>
+        </ul>
+
+        <h2 id="principle">一个核心原则</h2>
+        <p>占位符段落。原则通常是一句简短却强有力的话，方便反复对照与执行。</p>
+        <blockquote>
+          <p>"做出来，发出去，被打脸，再做一版。"</p>
+          <footer>—— 占位符引用</footer>
+        </blockquote>
+
+        <h2 id="code">一段占位符代码</h2>
+        <p>下面是占位符的代码块：</p>
+        <div class="code-block">
+          <div class="code-header">
+            <span class="code-lang">bash</span>
+            <button class="code-copy" aria-label="复制代码">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect>
+                <path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path>
+              </svg>
+            </button>
+          </div>
+          <pre><code># 占位符命令
+echo "Hello, MY-DOCS!"
+npm install placeholder
+npm run start</code></pre>
+        </div>
+
+        <h2 id="warn">常见误区</h2>
+        <div class="callout callout-warn">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"></path>
+            <path d="M12 9v4"></path>
+            <path d="M12 17h.01"></path>
+          </svg>
+          <div>
+            <p class="callout-title">注意</p>
+            <p>这是一段占位符警告：不要在没想清楚之前就开干，先把假设写下来再动手。</p>
+          </div>
+        </div>
+
+        <h2 id="checklist">下一步清单</h2>
+        <ul class="checklist">
+          <li><input type="checkbox" /> <span>占位符任务 1 — 写下你最近的一个想法</span></li>
+          <li><input type="checkbox" /> <span>占位符任务 2 — 列出三个潜在用户</span></li>
+          <li><input type="checkbox" /> <span>占位符任务 3 — 写下一句价值主张</span></li>
+        </ul>
+
+        <h2 id="next">下一步</h2>
+        <p>占位符段落。引导读者继续往下读。</p>
+
+        <!-- 购买 CTA -->
+        <aside class="purchase-cta" id="pricing">
+          <div class="purchase-cta-copy">
+            <p class="purchase-cta-eyebrow">早鸟价 · 限时</p>
+            <h3 class="purchase-cta-title">解锁完整实战手册</h3>
+            <p class="purchase-cta-desc">占位符：包含 6 个 Step 的全部细节、配套模板与案例库。</p>
+          </div>
+          <div class="purchase-cta-actions">
+            <a href="#" class="purchase-link">查看详情</a>
+            <a href="#" class="purchase-link purchase-link-primary">
+              立即购买
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M5 12h14"></path>
+                <path d="m12 5 7 7-7 7"></path>
+              </svg>
+            </a>
+          </div>
+        </aside>
+
+        <!-- 反馈条 -->
+        <div class="feedback" id="feedback">
+          <span>这篇文章有帮助吗？</span>
+          <div class="feedback-actions">
+            <button class="feedback-btn" data-feedback="up">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M7 10v12"></path>
+                <path d="M15 5.88 14 10h5.83a2 2 0 0 1 1.92 2.56l-2.33 8A2 2 0 0 1 17.5 22H7"></path>
+                <path d="M3 10h4v12H3z"></path>
+              </svg>
+              有帮助
+            </button>
+            <button class="feedback-btn" data-feedback="down">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M17 14V2"></path>
+                <path d="M9 18.12 10 14H4.17a2 2 0 0 1-1.92-2.56l2.33-8A2 2 0 0 1 6.5 2H17"></path>
+                <path d="M21 2h-4v12h4z"></path>
+              </svg>
+              需改进
+            </button>
+          </div>
+          <span class="feedback-thanks">感谢你的反馈 ✨</span>
+        </div>
+
+        <div class="article-footer">
+          <a href="#" class="footer-link">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M19 12H5"></path>
+              <path d="m12 19-7-7 7-7"></path>
+            </svg>
+            <span>
+              <small>上一篇</small>
+              <strong>欢迎</strong>
+            </span>
+          </a>
+          <a href="#" class="footer-link footer-link-right">
+            <span>
+              <small>下一篇</small>
+              <strong>前言</strong>
+            </span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M5 12h14"></path>
+              <path d="m12 5 7 7-7 7"></path>
+            </svg>
+          </a>
+        </div>
+      </article>
+    </main>
+
+    <!-- 右侧 TOC -->
+    <aside class="toc" id="toc">
+      <p class="toc-title">本页内容</p>
+      <nav class="toc-nav">
+        <a href="#why" class="toc-link">为什么要做这件事</a>
+        <a href="#what" class="toc-link">你会学到什么</a>
+        <a href="#principle" class="toc-link">一个核心原则</a>
+        <a href="#code" class="toc-link">一段占位符代码</a>
+        <a href="#warn" class="toc-link">常见误区</a>
+        <a href="#checklist" class="toc-link">下一步清单</a>
+        <a href="#next" class="toc-link">下一步</a>
+      </nav>
+      <div class="toc-bottom">
+        <a href="#" class="toc-edit-link">在 GitHub 上编辑此页 →</a>
+      </div>
+    </aside>
+
+    <!-- 风格切换 Popover -->
+    <div class="popover-backdrop" data-close-presets></div>
+    <div class="popover" id="presetPopover" role="dialog" aria-label="切换风格">
+      <p class="popover-title">选择风格</p>
+      <div class="preset-grid">
+        <button class="preset-card" data-preset="01mvp" type="button">
+          <div class="preset-thumb"></div>
+          <span class="preset-name">
+            01MVP
+            <svg class="check" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M20 6 9 17l-5-5"></path>
+            </svg>
+          </span>
+        </button>
+        <button class="preset-card" data-preset="linear" type="button">
+          <div class="preset-thumb"></div>
+          <span class="preset-name">
+            Linear
+            <svg class="check" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M20 6 9 17l-5-5"></path>
+            </svg>
+          </span>
+        </button>
+        <button class="preset-card" data-preset="claude" type="button">
+          <div class="preset-thumb"></div>
+          <span class="preset-name">
+            Claude
+            <svg class="check" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M20 6 9 17l-5-5"></path>
+            </svg>
+          </span>
+        </button>
+        <button class="preset-card" data-preset="blueprint" type="button">
+          <div class="preset-thumb"></div>
+          <span class="preset-name">
+            Blueprint
+            <svg class="check" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M20 6 9 17l-5-5"></path>
+            </svg>
+          </span>
+        </button>
+      </div>
+    </div>
+
+    <!-- ⌘K 搜索弹窗 -->
+    <div class="cmdk" id="cmdk" role="dialog" aria-label="搜索">
+      <div class="cmdk-panel">
+        <input class="cmdk-input" id="cmdkInput" type="text" placeholder="搜索文档…" autocomplete="off" />
+        <div class="cmdk-list" id="cmdkList">
+          <div class="cmdk-empty">没有匹配的结果</div>
+        </div>
+        <div class="cmdk-footer">
+          <span>占位符 · 搜索演示</span>
+          <span class="cmdk-footer-keys">
+            <span><kbd class="kbd">↑</kbd> <kbd class="kbd">↓</kbd> 导航</span>
+            <span><kbd class="kbd">↵</kbd> 选择</span>
+            <span><kbd class="kbd">Esc</kbd> 关闭</span>
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Presenter 浮窗 -->
+    <div class="presenter-stage">
+      <span class="presenter-stage-count" id="presenterCount">1 / 6</span>
+      <div class="presenter-stage-actions">
+        <button class="presenter-icon-btn" data-presenter-prev aria-label="上一节">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="m15 18-6-6 6-6"></path>
+          </svg>
+        </button>
+        <button class="presenter-icon-btn" data-presenter-next aria-label="下一节">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="m9 18 6-6-6-6"></path>
+          </svg>
+        </button>
+        <button class="presenter-icon-btn" data-toggle-presenter aria-label="退出 Present">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M18 6 6 18"></path>
+            <path d="m6 6 12 12"></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Zen 浮动退出按钮 -->
+    <button class="zen-floating" data-toggle-zen>
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="12" cy="12" r="3"></circle>
+        <path d="M3 7V5a2 2 0 0 1 2-2h2"></path>
+        <path d="M17 3h2a2 2 0 0 1 2 2v2"></path>
+        <path d="M21 17v2a2 2 0 0 1-2 2h-2"></path>
+        <path d="M7 21H5a2 2 0 0 1-2-2v-2"></path>
+      </svg>
+      退出 Zen (Z)
+    </button>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
