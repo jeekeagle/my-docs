@@ -831,102 +831,8 @@ html[data-theme="dark"] .theme-icon-moon { opacity: 1; transform: scale(1); }
 .toc-edit-link:hover { color: var(--primary); }
 
 /* =====================================================
-   11) 风格切换 Popover
+   11) 风格切换（直接点击循环，popover 已移除）
    ===================================================== */
-.popover {
-  position: fixed;
-  z-index: 50;
-  background: var(--popover);
-  color: var(--popover-fg);
-  border: 1px solid var(--border);
-  border-radius: 12px;
-  box-shadow: var(--shadow-popover);
-  padding: 16px;
-  width: 320px;
-  opacity: 0;
-  transform: translateY(-4px) scale(.98);
-  pointer-events: none;
-  transition: opacity .15s, transform .15s;
-}
-.popover.is-open { opacity: 1; transform: none; pointer-events: auto; }
-.popover-backdrop {
-  position: fixed; inset: 0;
-  z-index: 49;
-  background: transparent;
-  display: none;
-}
-.popover-backdrop.is-open { display: block; }
-
-.popover-title {
-  font-size: 12px;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: .08em;
-  color: var(--muted-fg);
-  margin: 0 0 12px;
-}
-.preset-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 8px;
-}
-.preset-card {
-  display: flex;
-  flex-direction: column;
-  align-items: stretch;
-  padding: 8px;
-  border-radius: 10px;
-  border: 2px solid transparent;
-  background: var(--card);
-  cursor: pointer;
-  transition: border-color .15s, background .15s, transform .15s;
-  text-align: left;
-}
-.preset-card:hover { background: var(--accent); }
-.preset-card.is-active {
-  border-color: var(--primary);
-  background: color-mix(in srgb, var(--primary) 6%, var(--card));
-}
-.preset-thumb {
-  width: 100%;
-  aspect-ratio: 16 / 10;
-  border-radius: 6px;
-  border: 1px solid var(--border);
-  background: var(--card);
-  margin-bottom: 8px;
-  overflow: hidden;
-  position: relative;
-}
-.preset-thumb::before {
-  content: "";
-  position: absolute; inset: 0;
-  background: var(--preset-thumb-bg, var(--bg));
-}
-.preset-thumb::after {
-  content: "";
-  position: absolute;
-  top: 6px; left: 6px;
-  width: 30%; height: 6px;
-  border-radius: 2px;
-  background: var(--preset-thumb-fg, var(--fg));
-  opacity: .85;
-}
-.preset-name {
-  font-size: 12px;
-  font-weight: 600;
-  color: var(--fg);
-  display: flex;
-  align-items: center;
-  gap: 4px;
-}
-.preset-name .check { margin-left: auto; color: var(--primary); opacity: 0; }
-.preset-card.is-active .preset-name .check { opacity: 1; }
-
-/* Preset 缩略图色板 */
-.preset-card[data-preset="01mvp"]     { --preset-thumb-bg: #ffffff; --preset-thumb-fg: #111111; }
-.preset-card[data-preset="linear"]     { --preset-thumb-bg: #fbfbfd; --preset-thumb-fg: #5e6ad2; }
-.preset-card[data-preset="claude"]     { --preset-thumb-bg: #fbfaf7; --preset-thumb-fg: #a45f2b; }
-.preset-card[data-preset="blueprint"]  { --preset-thumb-bg: #f7f9fc; --preset-thumb-fg: #2563eb; }
 
 /* =====================================================
    12) ⌘K 搜索弹窗
@@ -1147,8 +1053,6 @@ html[data-theme="dark"] .theme-icon-moon { opacity: 1; transform: scale(1); }
   .purchase-cta { grid-template-columns: 1fr; }
   .purchase-cta-actions { width: 100%; }
   .purchase-link { flex: 1; justify-content: center; }
-  .popover { width: calc(100vw - 32px); left: 16px !important; }
-  .preset-grid { grid-template-columns: 1fr; }
 }
 
 /* 移动端侧边栏遮罩 */

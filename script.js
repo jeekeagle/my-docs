@@ -84,59 +84,18 @@
   }
 
   /* =========================================================
-     3) 风格切换 Popover
+     3) 风格切换 — 直接点击循环切换预设
      ========================================================= */
-  const popover      = document.getElementById('presetPopover');
-  const popoverBackdrop = document.querySelector('[data-close-presets]');
   const popoverTriggers = document.querySelectorAll('[data-open-presets]');
 
-  function openPopover() {
-    if (!popover) return;
-    // 定位到触发按钮的下方
-    const trigger = popoverTriggers[0];
-    if (trigger) {
-      const r = trigger.getBoundingClientRect();
-      popover.style.top  = (r.bottom + 8) + 'px';
-      popover.style.left = Math.max(16, r.right - 320) + 'px';
-    }
-    popover.classList.add('is-open');
-    if (popoverBackdrop) popoverBackdrop.classList.add('is-open');
+  function cyclePreset() {
+    const cur = root.getAttribute('data-preset') || '01mvp';
+    const idx = PRESETS.findIndex((p) => p.id === cur);
+    const next = PRESETS[(idx + 1) % PRESETS.length];
+    applyPreset(next.id);
   }
-  function closePopover() {
-    if (!popover) return;
-    popover.classList.remove('is-open');
-    if (popoverBackdrop) popoverBackdrop.classList.remove('is-open');
-  }
-  popoverTriggers.forEach((b) => b.addEventListener('click', (e) => {
-    e.stopPropagation();
-    if (popover.classList.contains('is-open')) closePopover();
-    else openPopover();
-  }));
-  if (popoverBackdrop) popoverBackdrop.addEventListener('click', closePopover);
 
-  // 选择 preset
-  document.querySelectorAll('.preset-card').forEach((card) => {
-    card.addEventListener('click', () => {
-      const id = card.getAttribute('data-preset');
-      if (PRESETS.some((p) => p.id === id)) {
-        applyPreset(id);
-        closePopover();
-      }
-    });
-  });
-
-  // 点外部关闭
-  document.addEventListener('click', (e) => {
-    if (!popover) return;
-    if (popover.contains(e.target)) return;
-    if ([...popoverTriggers].some((t) => t.contains(e.target))) return;
-    closePopover();
-  });
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && popover && popover.classList.contains('is-open')) {
-      closePopover();
-    }
-  });
+  popoverTriggers.forEach((b) => b.addEventListener('click', cyclePreset));
 
   /* =========================================================
      4) ⌘K 搜索弹窗
@@ -429,7 +388,6 @@
     // 搜索/弹窗打开时，Esc 关闭
     if (e.key === 'Escape') {
       if (cmdk && cmdk.classList.contains('is-open')) { closeSearch(); return; }
-      if (popover && popover.classList.contains('is-open')) { closePopover(); return; }
     }
     // 不在输入框里时，启用字母快捷键
     const tag = (e.target.tagName || '').toLowerCase();

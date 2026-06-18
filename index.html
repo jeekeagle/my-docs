@@ -86,7 +86,7 @@
               </svg>
               <span>Zen</span>
             </button>
-            <button class="tool-btn" type="button" title="切换网站风格" data-open-presets aria-pressed="false">
+            <button class="tool-btn" type="button" title="点击循环切换风格" data-open-presets aria-pressed="false">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <path d="M12 22a1 1 0 0 1 0-20 10 9 0 0 1 10 9 5 5 0 0 1-5 5h-2.25a1.75 1.75 0 0 0-1.4 2.8l.3.4a1.75 1.75 0 0 1-1.4 2.8z"></path>
                 <circle cx="13.5" cy="6.5" r=".5" fill="currentColor"></circle>
@@ -435,49 +435,7 @@ npm run start</code></pre>
       </div>
     </aside>
 
-    <!-- 风格切换 Popover -->
-    <div class="popover-backdrop" data-close-presets></div>
-    <div class="popover" id="presetPopover" role="dialog" aria-label="切换风格">
-      <p class="popover-title">选择风格</p>
-      <div class="preset-grid">
-        <button class="preset-card" data-preset="01mvp" type="button">
-          <div class="preset-thumb"></div>
-          <span class="preset-name">
-            01MVP
-            <svg class="check" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M20 6 9 17l-5-5"></path>
-            </svg>
-          </span>
-        </button>
-        <button class="preset-card" data-preset="linear" type="button">
-          <div class="preset-thumb"></div>
-          <span class="preset-name">
-            Linear
-            <svg class="check" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M20 6 9 17l-5-5"></path>
-            </svg>
-          </span>
-        </button>
-        <button class="preset-card" data-preset="claude" type="button">
-          <div class="preset-thumb"></div>
-          <span class="preset-name">
-            Claude
-            <svg class="check" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M20 6 9 17l-5-5"></path>
-            </svg>
-          </span>
-        </button>
-        <button class="preset-card" data-preset="blueprint" type="button">
-          <div class="preset-thumb"></div>
-          <span class="preset-name">
-            Blueprint
-            <svg class="check" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M20 6 9 17l-5-5"></path>
-            </svg>
-          </span>
-        </button>
-      </div>
-    </div>
+    <!-- 风格切换 Popover (已移除：改为直接点击循环) -->
 
     <!-- ⌘K 搜索弹窗 -->
     <div class="cmdk" id="cmdk" role="dialog" aria-label="搜索">
